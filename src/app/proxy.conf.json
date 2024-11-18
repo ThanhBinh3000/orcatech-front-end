@@ -1,0 +1,33 @@
+{
+  "/api/": {
+    "target": "http://localhost:8888",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api/": ""
+    }
+  }
+}
+
+//{
+//  "/api/security": {
+//    "target": "http://localhost:9999",
+//    "secure": false,
+//    "changeOrigin": true,
+//    "logLevel": "debug",
+//    "pathRewrite": {
+//      "^/api/security": ""
+//    }
+//  },
+//  "/api/": {
+//    "target": "http://localhost:8888",
+//    "secure": false,
+//    "changeOrigin": true,
+//    "logLevel": "debug",
+//    "pathRewrite": {
+//      "^/api/": ""
+//    }
+//  }
+//}
+

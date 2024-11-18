@@ -1,0 +1,79 @@
+﻿.variance_dropdown {
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+}
+
+/*a {
+  color: #fff;
+}*/
+
+.variance_dropdown dd,
+.variance_dropdown dt {
+  margin: 0px;
+  padding: 0px;
+}
+
+.variance_dropdown ul {
+  margin: -1px 0 0 0;
+}
+
+.variance_dropdown dd {
+  position: relative;
+}
+
+.variance_dropdown a,
+.variance_dropdown a:visited {
+  color: #666;
+  text-decoration: none;
+  outline: none;
+  font-size: 12px;
+}
+
+.variance_dropdown dt a {
+    background-color: #fff;
+    padding: 8px 0px 0px 0px;
+    min-height: 25px;
+    line-height: 13px;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.variance_dropdown dt a span,
+.variance_multiSel span {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 3px 2px 0;
+}
+
+.variance_dropdown dd ul {
+    background-color: #fff;
+    border: solid 1px #888;
+    color: #333;
+    display: none;
+    left: 0px;
+    padding: 2px 15px 2px 5px;
+    position: absolute;
+    top: 0px;
+    width: 700px;
+    list-style: none;
+    height: 345px;
+    overflow: auto;
+    box-shadow: 5px 5px 5px grey;
+}
+
+.variance_dropdown span.value {
+  display: none;
+}
+
+.variance_dropdown dd ul li a {
+  padding: 5px;
+  display: block;
+}
+
+.variance_dropdown dd ul li a:hover {
+  background-color: #fff;
+}
+div.variance_mutliSelect button{
+    padding: 10px;
+}

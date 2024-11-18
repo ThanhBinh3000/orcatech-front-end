@@ -1,0 +1,273 @@
+﻿#freelancerQuotaTable table, #freelancerReportTable{
+    margin: 10px 0 -1px;
+}
+.sort-down{
+    border-color: #909090 transparent;
+    border-style: solid;
+    border-width: 5px 5px 0 5px;
+    width: 0;
+    height: 0;
+    margin-left: -2px;
+    top: 50%;
+    margin-top: -3px;
+    position: absolute;
+    right: 6px;
+}
+.sort-up{
+    border-color: #909090 transparent;
+    border-style: solid;
+    border-width: 0 5px 5px 5px;
+    width: 0;
+    height: 0;
+    margin-left: -2px;
+    top: 50%;
+    margin-top: -3px;
+    position: absolute;
+    right: 6px;
+}
+#freelancerQuotaTable th, #freelancerReportTable th{
+    position: relative;
+    font-family: Arial;
+    background-color: #f0f0f0;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;
+    cursor: default;
+    vertical-align: middle;
+}
+#freelancerQuotaTable .btn-default, #freelancerReportTable .btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+#freelancerQuotaTable .table-page .btn, #freelancerReportTable .table-page .btn{
+    font-size: 13px;
+    padding: 8px 12px;
+    margin-right: 3px;
+    line-height: 13px;
+    height: 32px;
+}
+#freelancerQuotaTable .btn.selected, #freelancerReportTable .btn.selected{
+    background-color: #ddd;
+}
+#freelancerQuotaTable .btn.disabled, #freelancerReportTable .btn.disabled{
+    opacity: 0.5;
+    cursor: default;
+}
+#freelancerQuotaTable .dropdown-menu > li > a, #freelancerReportTable .dropdown-menu > li > a {
+    border-radius: 0;
+    color: inherit;
+    line-height: 21px;
+    margin: 0;
+    text-align: left;
+    font-weight: normal;
+    padding: 4px 14px;
+    font-size: 13px;
+}
+#freelancerQuotaTable .dropdown-menu, #freelancerReportTable .dropdown-menu{
+    min-width: 63px;
+    left: 1px;
+}
+#freelancerQuotaTable .table-page, #freelancerQuotaTable .table-perpage, #freelancerReportTable .table-page, #freelancerReportTable .table-perpage{
+    float: left;
+}
+#freelancerQuotaTable .table-info, #freelancerReportTable .table-info{
+    float: right;
+    padding-top: 7px;
+}
+#freelancerQuotaTable #in-page, #freelancerQuotaTable #in-total, #freelancerReportTable #in-page, #freelancerReportTable #in-total{
+    font-weight: 600;
+}
+#freelancerQuotaTable .paging, #freelancerReportTable .paging{
+    float: left;
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 3px 5px;
+    border: solid 1px #e7e7e7;
+}
+#freelancerQuotaTable .table-page span.etc, #freelancerReportTable .table-page span.etc{
+    padding: 2px 3px 2px 1px;
+}
+#freelancerQuotaTable #page-btn, #freelancerReportTable #page-btn{
+    width: 65px;
+    text-align: left;
+    height: 32px;
+    padding: 0px 3px 2px 14px;
+    font-size: 13px;
+}
+.mini-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.mini-table th {
+    background-color: #e5e5e5;
+}
+.mini-table th, td {
+    border: 1px solid #ddd;
+    padding: 1px 5px;
+}
+#view-freelancerQuota-dialog .table-info, #add-freelancerQuota-dialog .table-info{
+    float: right;
+    padding-top: 1px;
+}
+#view-freelancerQuota-dialog .btn-default, #add-freelancerQuota-dialog .btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+#view-freelancerQuota-dialog .table-page .btn, #add-freelancerQuota-dialog .table-page .btn{
+    font-size: 10px;
+    padding: 3px 4px;
+    margin-right: 1px;
+    line-height: 10px;
+}
+#view-freelancerQuota-dialog .btn.selected, #add-freelancerQuota-dialog .btn.selected{
+    background-color: #ddd;
+}
+#view-freelancerQuota-dialog .btn.disabled, #add-freelancerQuota-dialog .btn.disabled{
+    opacity: 0.5;
+    cursor: default;
+}
+#view-freelancerQuota-dialog .table-page, #view-freelancerQuota-dialog .table-perpage, #add-freelancerQuota-dialog .table-page, #add-freelancerQuota-dialog .table-perpage{
+    float: left;
+}
+#view-freelancerQuota-dialog .paging, #add-freelancerQuota-dialog .paging{
+    font-size: 10px;
+    float: left;
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 1px;
+    border: solid 1px #e7e7e7;
+}
+#page-btn-step{
+    width: 40px;
+    text-align: left;
+    height: 18px;
+    padding: 0 3px;
+    font-size: 10px;
+}
+#page-btn-editor{
+    width: 40px;
+    text-align: left;
+    height: 18px;
+    padding: 0 3px;
+    font-size: 10px;
+}
+#page-btn-step-add{
+    width: 40px;
+    text-align: left;
+    height: 18px;
+    padding: 0 3px;
+    font-size: 10px;
+}
+#page-btn-editor-add{
+    width: 40px;
+    text-align: left;
+    height: 18px;
+    padding: 0 3px;
+    font-size: 10px;
+}
+#view-freelancerQuota-dialog .dropdown-menu > li > a, #add-freelancerQuota-dialog .dropdown-menu > li > a {
+    border-radius: 0;
+    color: inherit;
+    line-height: 16px;
+    margin: 0;
+    text-align: left;
+    font-weight: normal;
+    padding: 2px 8px;
+    font-size: 12px;
+}
+#view-freelancerQuota-dialog .dropdown-menu, #add-freelancerQuota-dialog .dropdown-menu{
+    min-width: 38px;
+    left: 1px;
+}
+.inputLabel{
+    float: left;
+    padding: 3px 10px 3px 0;
+}
+.inputTxt{
+    float: left;
+}
+.inputTxt input{
+    padding: 1px 5px;
+    width: 80px;
+}
+.mini-table input[type="text"]{
+    width: 75px;
+    line-height: 15px;
+    padding: 0px 2px;
+}
+.popHeader{
+    width: 50%;
+    background-color: #e5e5e5;
+    float: left;
+    padding: 5px;
+}
+.mini-table-search{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+#searchStepDiv{
+    position: absolute;
+    top: 1px;
+    right: 22px;
+    box-shadow: 3px 4px 5px #888888;
+}
+#searchStepDiv input{
+    font-weight: normal;
+    font-size: 13px;
+    width: 245px;
+    line-height: 17px;
+    padding: 0 3px;
+}
+#searchEditorDiv{
+    position: absolute;
+    top: 1px;
+    right: 22px;
+    box-shadow: 3px 4px 5px #888888;
+}
+#searchEditorDiv input{
+    font-weight: normal;
+    font-size: 13px;
+    width: 331px;
+    line-height: 17px;
+    padding: 0 3px;
+}
+#searchEditorClear, #searchStepClear{
+    color: #ff2c2c;
+    cursor: pointer;
+}
+#saveNewQuota.disable{
+    opacity: 0.5;
+}
+#searchFreelancerName{
+    position: absolute;
+    top: 11px;
+    left: 7px;
+    cursor: pointer;
+}
+#searchFreelancerNameClear{
+    position: absolute;
+    top: 11px;
+    left: 7px;
+    cursor: pointer;
+    color: #f00;
+}
+#searchFreelancerNameDiv{
+    position: absolute;
+    top: 1px;
+    left: 22px;
+    box-shadow: 3px 4px 5px #888888;
+}
+#searchFreelancerNameDiv input{
+    font-weight: normal;
+    font-size: 13px;
+    width: 203px;
+    line-height: 27px;
+    padding: 0 6px;
+}

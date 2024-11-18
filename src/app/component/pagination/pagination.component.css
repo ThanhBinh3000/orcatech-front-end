@@ -1,0 +1,10 @@
+footer#footerId {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -90px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

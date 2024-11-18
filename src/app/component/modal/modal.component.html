@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" (click)="closeModal()" aria-label="Đóng"><span>&times;</span></button>
+      <h4 class="modal-title">{{this.param.title }}
+      </h4>
+    </div>
+    <div class="modal-body">
+      {{this.param.content}}
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" (click)="closeModal()">Close</button>
+      <button type="button" class="btn btn-primary" (click)="confirm()">Agree</button>
+    </div>
+  </div>
+</div>

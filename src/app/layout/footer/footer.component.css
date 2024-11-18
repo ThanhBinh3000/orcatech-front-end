@@ -1,0 +1,34 @@
+footer#footerId {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -90px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-content {
+  margin: 0 auto;
+}
+
+.footer-text {
+  padding: 1px;
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.footer-link {
+  text-decoration: none;
+}
+
+.header-text-orca {
+  color: #32edf3;
+}
+
+.header-text-tech {
+  color: #32d0f3;
+}
+
+

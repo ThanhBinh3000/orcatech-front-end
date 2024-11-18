@@ -1,0 +1,40 @@
+﻿.box {
+    position: relative;
+    border: solid 1px #E8E8E8;
+    float: left;
+    padding: 15px;
+    /*overflow: hidden;*/
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.box-drugitems
+{
+    top:0;
+    width:70%;
+    height:550px;
+}
+
+.box-summary
+{
+    top:0;
+    width:30%;
+    height:550px;
+}
+
+.header-bg {
+    background-color: #f2f2f2 !important;
+}
+
+/* borderless table */
+.table.table-borderless td, .table.table-borderless th {
+    border: 0 !important;
+}
+
+.table.table-borderless {
+    margin-bottom: 0px;
+}
+
+.borderless td, .borderless th {
+    border: none;
+}

@@ -1,0 +1,69 @@
+.header-text {
+  font-size: 30px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.header-text-orca {
+  color: #32edf3;
+}
+
+.header-text-tech {
+  color: #32d0f3;
+}
+
+.title {
+  font-size: 18px;
+  color: gray;
+  display: block;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: gray;
+  display: block;
+  text-align: center;
+}
+
+.placeholder-label {
+  color: gray;
+  font-size: 13px;
+}
+
+.radio-input {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-right: 10px;
+  font-size: 14px;
+  font-weight: 100;
+  cursor: pointer;
+  background-color: #fff;
+  transition: background-color 0.3s, border-color 0.3s;
+  width: 100%;
+  max-width: 300px;
+  color: #666;
+}
+
+.radio-input input[type="radio"] {
+  margin-right: 10px;
+}
+
+.radio-input:hover {
+  background-color: #f0f0f0;
+  border-color: #32d0f3;
+  color: #333;
+}
+
+.radio-input input[type="radio"]:checked + .radio-label {
+  font-weight: bold;
+  color: #32d0f3;
+}
+
+.card {
+  overflow-y: scroll; /* Hiển thị thanh cuộn dọc khi cần */
+  max-height: 820px; /* Giới hạn chiều cao tối đa */
+}

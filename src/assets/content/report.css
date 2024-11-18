@@ -1,0 +1,148 @@
+﻿@media print {
+    #Header, #Footer {
+        display: none !important;
+    }
+
+    footer, hr {
+        display: none !important
+    }
+
+    .baocao-filter {
+        display: none !important
+    }
+
+    .print-header {
+        display: block !important
+    }
+
+    .print-date {
+        display: block !important;
+    }
+
+    .btn-actiongroup {
+        display: none;
+    }
+
+    h2 {
+        margin: 0 !important;
+        font-size: 18px !important;
+
+    }
+}
+
+.print-date {
+    display: none;
+}
+
+/*Bao cao tong hop*/
+
+.baocao-actions {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.baocao-actions-row {
+    flex-direction: column;
+}
+
+.baocao-actions-row .baocao-actions-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.table>thead>tr>th {
+    /*min-width: 50px;*/
+}
+
+.tr-ng-grid .tr-ng-column-header .tr-ng-title{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.tr-ng-grid .tr-ng-sort .tr-ng-sort-active, 
+.tr-ng-grid .tr-ng-sort .tr-ng-sort-inactive {
+    position: relative !important;
+}
+
+.tr-ng-grid .tr-ng-sort {
+    position: relative !important;
+    width: auto !important;
+}
+
+
+.table tfoot tr td {
+    background: #f2f2f2;
+    border: 0px;
+}
+
+.table-bcth td {
+    padding: 5px;
+    border-bottom: 1px dashed lightgray;
+}
+
+.table-bcth td.title {
+    color: var(--dark-color);
+    font-weight: bold;
+}
+
+.table-bcth td.title.sub {
+    color: green;
+    font-weight: normal;
+    padding-left: 40px;
+}
+
+.table-bcth td.value.sub {
+    font-weight: normal;
+}
+
+.table-bcth td.value {
+    font-weight: bold;
+    color: red;
+    text-align: right;
+}
+
+.baocao-container {
+    /*border: 1px solid lightgray;
+    padding: 5px;*/
+    overflow-x: auto;
+    overflow-y:hidden;
+}
+
+.table-bcth td.striked {
+    text-decoration: line-through;
+}
+
+.baocao-container .summary {
+    margin-top: 30px;
+    margin-bottom: 10px;
+
+}
+
+.baocao-container .summary table td {
+    padding-left: 50px;
+    padding-top: 15px;
+}
+
+.baocao-container table tr.red {
+    background-color: red;
+}
+
+.print-header {
+    padding: 20px 0 30px 0;
+    display: none;
+}
+
+.print-header table td {
+    padding-right: 40px;
+}
+
+input[type="checkbox"].partially-paid {
+    accent-color: red;
+}

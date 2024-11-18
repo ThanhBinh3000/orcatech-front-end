@@ -1,0 +1,580 @@
+/* Prevent angular js from showing {{variable}} upon page load*/
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
+  display: none !important;
+}
+
+.tr-ng-grid .tr-ng-column-header .tr-ng-title {
+  text-align: left;
+  padding-top: 0px;
+}
+
+.table > tbody > tr > td,
+.table > tbody > tr > td > .tr-ng-cell {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+.table thead th {
+  background-color: darkgray;
+}
+
+.row-item-warning {
+  background-color: #F47DB0 !important;
+}
+
+.row-not-equal-drug-price {
+  background-color: #d3d35c !important;
+}
+
+.row-item-connectivity {
+  background-color: lightgreen !important;
+}
+
+/*.row-item-destroyed {
+    background-color: #fd7e14 !important;
+}
+
+.row-item-replaced {
+    background-color: #ffc107 !important;
+}
+
+.row-item-edited {
+    background-color: #0dcaf0 !important;
+}*/
+
+.row-item-connectivity-not-connected {
+  background-color: gray !important;
+}
+
+.row-item-ordered {
+  background-color: darkseagreen !important;
+}
+
+.center-div {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 2px;
+}
+
+#noticeViewContainer {
+  position: fixed;
+  right: 30px;
+  top: 30px;
+  z-index: 100000;
+}
+
+div.control-label {
+  text-align: left !important;
+}
+
+.revenue-value {
+  color: #d43f3a;
+  font-weight: bold;
+}
+
+.number-value {
+  text-align: right;
+}
+
+.report-title {
+  font-size: 32px;
+  text-align: center !important;
+}
+
+.inner {
+  display: table;
+  margin: 0 auto;
+}
+
+.report-box {
+  border: 1px solid lightgray;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.ajax-loader {
+  position: fixed;
+  left: 50%;
+  top: 15%;
+  margin-left: -32px; /* -1 * image width / 2 */
+  margin-top: -32px; /* -1 * image height / 2 */
+  display: block;
+}
+
+/* -------------Start - Datetime picker for lable or div-------------------*/
+.daterange-picker {
+  position: relative;
+}
+
+.daterange-picker input {
+  /*invisible input as jquery ui requires an actual input*/
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+.clickable-text {
+  display: inline-block;
+  user-select: none;
+
+  cursor: pointer;
+  padding: 0 2px;
+}
+
+.clickable-text:hover {
+  color: blue;
+  background: #f5f5f5;
+  border-bottom-color: blue;
+}
+
+/* -------------End - Datetime picker for lable or div-------------------*/
+
+
+/* -------------Start - Loading Spinner-------------------*/
+/*
+ *  Usage:
+ *
+ *    <div class="sk-spinner sk-spinner-double-bounce">
+ *      <div class="sk-double-bounce1"></div>
+ *      <div class="sk-double-bounce2"></div>
+ *    </div>
+ *
+ */
+.sk-spinner-double-bounce.sk-spinner {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.sk-spinner-double-bounce .sk-double-bounce1,
+.sk-spinner-double-bounce .sk-double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #1ab394;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: sk-doubleBounce 2s infinite ease-in-out;
+  animation: sk-doubleBounce 2s infinite ease-in-out;
+}
+
+.sk-spinner-double-bounce .sk-double-bounce2 {
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
+}
+
+@-webkit-keyframes sk-doubleBounce {
+  0%,
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes sk-doubleBounce {
+  0%,
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+/* -------------End - Loading Spinner-------------------*/
+
+.login-bg {
+  background-image: url('/assets/images/bg_login.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.box-login {
+  max-width: 800px;
+  height: calc(100vh - 105px);
+  margin: 0 auto;
+}
+
+.header-main {
+  z-index: 999;
+  border-radius: 0px !important;
+  margin-bottom: 0px !important;
+  -webkit-transition: position 10s;
+  -moz-transition: position 10s;
+  -ms-transition: position 10s;
+  -o-transition: position 10s;
+  transition: position 10s;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.header-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+
+.body-content {
+  margin-top: 75px;
+}
+
+#logoutForm {
+  margin-right: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+#bloc1 {
+  position: relative;
+}
+
+.navbar-brand {
+  float: none;
+  padding: 0px !important;
+  margin-left: 0px !important;
+}
+
+.count-info .label {
+  line-height: 12px;
+  padding: 2px 5px;
+  position: absolute;
+  left: 99px;
+  top: 30px;
+}
+
+.ui-select-choices {
+  width: auto !important;
+  /*position: fixed;
+  top: auto;
+  left: auto;*/
+  /*width: inherit;*/
+}
+
+.select2 > .select2-choice.ui-select-match {
+  /* Because of the inclusion of Bootstrap */
+  height: 34px;
+  background-image: none;
+  border: 1px solid #ccc;
+}
+
+.select2-dropdown-open .select2-choice {
+  background-color: #fbfdfd;
+}
+
+.selectize-control > .selectize-dropdown {
+  top: 36px;
+}
+
+/* Some additional styling to demonstrate that append-to-body helps achieve the proper z-index layering. */
+.select-box {
+  background: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.alert-info.positioned {
+  margin-top: 1em;
+  position: relative;
+  z-index: 10000; /* The select2 dropdown has a z-index of 9999 */
+}
+
+.ui-select-multiple.ui-select-bootstrap {
+  height: auto;
+}
+
+/* -------------Start - Status Bar-------------------*/
+.status-bar {
+  position: fixed;
+  left: 50px;
+  top: 50px;
+  background-color: #e3ff4f;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 200px;
+  height: 150px;
+  margin-right: 22px;
+  margin-bottom: 25px;
+  padding: 10px;
+}
+
+.status-bar:hover {
+  cursor: ns-resize;
+}
+
+/* -------------End - Status Bar-------------------*/
+
+/* -------------Start - Collapsible Panel With Up/Down Arrow Icon-------------------*/
+/*body {
+    padding: 50px;
+    background: #fff;
+}*/
+
+.wrapper {
+  width: 100%;
+}
+
+@media (max-width: 992px) {
+  .wrapper {
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .nav-orca-bg {
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .nav-orca-bg {
+    font-size: 14px;
+  }
+}
+
+.panel-heading {
+  padding: 0;
+  border: 0;
+}
+
+.panel-title > a, .panel-title > a:active {
+  display: block;
+  padding: 10px;
+  color: #555;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: inherit;
+  /*letter-spacing: 1px;*/
+  word-spacing: 1.5px;
+  text-decoration: none;
+}
+
+.panel-heading a.collapsed:before {
+  font-family: 'Font Awesome 6 Pro';
+  content: "\f107";
+  float: right;
+  transition: all 0.5s;
+}
+
+.panel-heading a:before {
+  font-family: 'Font Awesome 6 Pro';
+  content: "\f106";
+  float: right;
+  transition: all 0.5s;
+}
+
+/* -------------End - Collapsible Panel With Up/Down Arrow Icon-------------------*/
+
+/* -------------Start - Input Text-------------------*/
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+  background-color: #ffffff;
+  opacity: 1;
+}
+
+/* -------------End - Input Text-------------------*/
+
+/* -------------Start - Image-------------------*/
+
+/* -------------End - Image-------------------*/
+
+.tooltip-content-drug {
+  position: relative;
+}
+
+.show-tooltip-content-drug {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  border: 1px;
+  background-color: white;
+  border-style: solid;
+  border-width: 1px;
+  border-color: gray;
+  padding: 3px;
+  color: black;
+  top: 20px;
+  left: 20px;
+  text-align: left;
+}
+
+.tooltip-content-drug:hover span.show-tooltip-content-drug {
+  display: block;
+}
+
+span.show-tooltip-content-drug span {
+  background-color: forestgreen;
+  color: white;
+}
+
+span.show-tooltip-content-drug strong {
+  background-color: #05D6EE;
+}
+
+.bg-color-title-drug-name {
+  background-color: forestgreen;
+  color: white;
+}
+
+.bg-color-title-drug-price {
+  background-color: #05D6EE;
+}
+
+.txt-align-feedback {
+  text-align: center;
+}
+
+.border-radius-form {
+  border-radius: 15px;
+  margin-top: 50px;
+}
+
+.w-dialog {
+  width: 30%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.btn-radius-form {
+  border-radius: 6px;
+  height: 40px;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.back-ground-color-content {
+  background-color: #fbfbfb;
+}
+
+.font-size-form {
+  font-size: 16px;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 10%;
+}
+
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+  content: "\2605";
+  position: absolute;
+  color: orange;
+  cursor: pointer;
+}
+
+.format-star-size {
+  font-size: 40px;
+  text-align: center;
+  width: 100%;
+}
+
+.btn-save-last {
+  justify-content: center !important;
+}
+
+.btn-save-last:hover {
+  cursor: pointer;
+}
+
+.title-star {
+  font-size: 12px;
+}
+
+.title-star > span {
+  padding-left: 15px;
+}
+
+.form-success-border-radius {
+  border-radius: 15px;
+}
+
+.form-feedback-success {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 78px;
+  color: forestgreen;
+}
+
+.form-feedback-success > label {
+  font-size: 20px;
+  color: black;
+}
+
+.txt-color-star {
+  color: orange;
+}
+
+.modal-footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.alo_menu {
+  color: #000000;
+}
+
+.alo_menu:hover {
+  color: #47D3E5;
+}
+
+.sticky-col {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+
+.sticky-row {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.blink {
+  animation: blinker 1s linear infinite;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}

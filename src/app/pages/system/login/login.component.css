@@ -1,0 +1,28 @@
+.header-text {
+  font-size: 30px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.header-text-orca {
+  color: #32edf3;
+}
+
+.header-text-tech {
+  color: #32d0f3;
+}
+
+.subheader-text {
+  font-size: 15px;
+  color: gray;
+}
+
+.forgot-password-link {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.forgot-password-link:hover {
+  color: #ff5722;
+}

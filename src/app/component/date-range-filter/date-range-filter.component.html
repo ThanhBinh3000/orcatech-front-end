@@ -1,0 +1,44 @@
+<label>
+  <b>Time</b>
+</label>
+<div>
+  <form [formGroup]="dateForm">
+    <div class="radio">
+      <div>
+        <input type="radio" id="rdFilterAll" name="dateRangeFilterType" [checked]="filterType === DATE_RANGE.ALL"
+               (change)="onFilterTypeChange(DATE_RANGE.ALL)">
+        <label for="rdFilterAll">All</label>
+      </div>
+      <div>
+        <input type="radio" id="rdFilterByRange" name="dateRangeFilterType"
+               [checked]="filterType === DATE_RANGE.BY_DATE"
+               (change)="onFilterTypeChange(DATE_RANGE.BY_DATE)">
+        <label for="rdFilterByRange">By date</label>
+      </div>
+      <div class="input-daterange input-group" id="datepicker" *ngIf="filterType === DATE_RANGE.BY_DATE">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="From date.." [matDatepicker]="pickerFromDate"
+                 formControlName="pickerFromDate" (dateChange)="onFromDateChange($event.value)"
+                 (click)="pickerFromDate.open()">
+          <mat-datepicker #pickerFromDate></mat-datepicker>
+          <span class="input-group-btn">
+              <button class="btn btn-primary" (click)="pickerFromDate.open()">
+                <i class="fa-regular fa-calendar-days"></i>
+              </button>
+            </span>
+        </div>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="To date.." [matDatepicker]="pickerToDate"
+                 formControlName="pickerToDate" (dateChange)="onToDateChange($event.value)"
+                 (click)="pickerToDate.open()">
+          <mat-datepicker #pickerToDate></mat-datepicker>
+          <span class="input-group-btn">
+              <button class="btn btn-primary" (click)="pickerToDate.open()">
+                <i class="fa-regular fa-calendar-days"></i>
+              </button>
+            </span>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

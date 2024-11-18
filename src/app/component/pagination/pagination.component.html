@@ -1,0 +1,46 @@
+<div *ngIf="this.totalRecord > 0" class="tr-ng-grid-footer form-inline">
+    <span class="form-group pull-left page-size">
+        <select id="pageSize" class="form-control" (change)="onPageSizeChange($event.target)">
+            <option *ngFor="let option of pageSizeOptions" [value]="option.value">{{ option.label }}</option>
+          </select>
+        <span class="page-size-label">&nbsp;&nbsp;Line / Page</span>
+    </span>
+  <span class="pull-right form-group" style="height:40px">
+        <ul class="pagination">
+            <li [class]="currentPage == 1 ? 'disabled':''">
+                <a (click)="currentPage == 1 ? null : onPageChange(1)" title="First page"> <span>«</span> </a>
+            </li>
+            <li [class]="currentPage == 1 ? 'disabled':''">
+                <a (click)="currentPage == 1 ? null : onPageChange(this.currentPage-1)"
+                   title="Previous page"> <span>‹</span>
+                </a>
+            </li>
+            <li *ngIf="getPages().moreLeft" class="disabled">
+              <span>...</span>
+            </li>
+            <li *ngFor="let pageNumber of getPages().pages" [class]="pageNumber == currentPage ? 'active' : ''">
+                <a (click)="onPageChange(pageNumber)" title="Page">{{ pageNumber }}</a>
+            </li>
+            <li *ngIf="getPages().moreRight" class="disabled">
+                <span>...</span>
+            </li>
+            <li [class]="currentPage == totalPages ? 'disabled':''">
+                <a (click)="currentPage == totalPages ? null : onPageChange(this.currentPage+1)"
+                   title="Next page"> <span>›</span>
+                </a>
+            </li>
+            <li [class]="currentPage == totalPages ? 'disabled':''">
+                <a (click)="currentPage == totalPages ? null : onPageChange(this.totalPages)"
+                   title="Last page"> <span>»</span>
+                </a>
+            </li>
+            <li class="disabled" style="white-space: nowrap;">
+                <span class="ng-hide"> No data</span>
+                <span> Total: {{ this.totalRecord }} records</span>
+            </li>
+        </ul>
+    </span>
+</div>
+<div *ngIf="this.totalRecord <= 0">
+  <p class="text-danger text-center mt-3">No data found</p>
+</div>

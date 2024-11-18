@@ -1,0 +1,36 @@
+/* Updated styles for full-screen-spinner and spinner-text */
+.full-screen-spinner {
+  position: fixed; /* Fixed position to cover the whole screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 9999; /* Ensure it's above other content */
+  display: flex;
+  flex-direction: column; /* Stack the spinner and text vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, .1);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border-left-color: #09f;
+  animation: spin 1s linear infinite;
+}
+
+.spinner-text {
+  color: #fff; /* White color for visibility */
+  font-size: 2em; /* Large font size */
+  font-weight: bold; /* Bold text */
+  margin-top: 20px; /* Space between spinner and text */
+  user-select: none; /* Prevent text selection */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
