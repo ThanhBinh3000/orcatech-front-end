@@ -75,7 +75,6 @@ export class RegisterComponent extends BaseComponent implements OnInit {
 
   async ngOnInit() {
     this.titleService.setTitle(this.title);
-
     await this.getListRegions();
     await this.getListProvinces(this.formGroup.get('regionId')?.value);
     await this.getListCities(this.formGroup.get('provinceId')?.value);
