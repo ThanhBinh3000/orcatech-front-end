@@ -16,6 +16,7 @@ import {CitiesService} from '../../../services/categories/cities.service';
 import {WardsService} from '../../../services/categories/wards.service';
 import {MESSAGE, STATUS_API} from '../../../constants/message';
 import {ProvincesService} from '../../../services/categories/provinces.service';
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-register',
@@ -41,6 +42,7 @@ export class RegisterComponent extends BaseComponent implements OnInit {
     private provincesService: ProvincesService,
     private citiesService: CitiesService,
     private wardsService: WardsService,
+    private datePipe: DatePipe,
     public dialogRef: MatDialogRef<RegisterComponent>,
   ) {
     super(injector, _service);
@@ -141,8 +143,9 @@ export class RegisterComponent extends BaseComponent implements OnInit {
     const month = this.formGroup.get('selectedMonth')?.value;
     const year = this.formGroup.get('selectedYear')?.value;
     if (day && month && year) {
-      const birthDate = new Date(year, month - 1, day);
-      this.formGroup.get('birthDate')?.setValue(birthDate);
+      const birthDate = new Date(Date.UTC(year, month - 1, day));
+      const formattedDate = this.datePipe.transform(birthDate, 'dd/MM/yyyy HH:mm:ss') ?? '';
+      this.formGroup.get('birthDate')?.setValue(formattedDate);
     }
   }
 

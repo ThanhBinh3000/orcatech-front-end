@@ -127,9 +127,13 @@ import {BaseComponent} from './base.component';
     InfoComponent
   ],
   providers: [
+    DatePipe,
+    AppDatePipe,
+    AppDateTimePipe,
+    DecimalPipe,
     provideEnvironmentNgxMask(),
-    {provide: DateAdapter, useClass: CustomDateAdapter, deps: [MAT_DATE_LOCALE]},
-    {provide: MAT_DATE_LOCALE, useValue: 'vi-VN'}
+    { provide: DateAdapter, useClass: CustomDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_LOCALE, useValue: 'vi-VN' }
   ],
   schemas: [NO_ERRORS_SCHEMA],
 })
