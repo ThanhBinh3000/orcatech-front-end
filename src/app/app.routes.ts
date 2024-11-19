@@ -16,6 +16,7 @@ export const routes: Routes = [
         path: 'system',
         children: [
           {path: 'login', component: LoginComponent},
+          {path: 'register', component: RegisterComponent}
         ]
       },
     ],

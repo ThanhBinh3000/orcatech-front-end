@@ -506,14 +506,17 @@ img {
   font-size: 24px;
   transition: color 0.3s;
 }
+
 .hover-effect .header-text-tech {
   color: #32d0f3;
   font-size: 24px;
   transition: color 0.3s;
 }
+
 .hover-effect:hover .header-text-orca {
   color: #ff9800;
 }
+
 .hover-effect:hover .header-text-tech {
   color: #ff5722;
 }
