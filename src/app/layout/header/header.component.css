@@ -493,6 +493,9 @@ img {
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
+  margin-right: 10px;
+  margin-top: 8px;
+  margin-bottom: 5px;
 }
 
 .logo-link {
@@ -504,13 +507,13 @@ img {
 .hover-effect .header-text-orca {
   color: #32edf3;
   font-size: 24px;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
 .hover-effect .header-text-tech {
   color: #32d0f3;
   font-size: 24px;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
 .hover-effect:hover .header-text-orca {

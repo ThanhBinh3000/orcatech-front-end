@@ -37,7 +37,6 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 8px 12px;
-  margin-right: 10px;
   font-size: 14px;
   font-weight: 100;
   cursor: pointer;
@@ -64,6 +63,18 @@
 }
 
 .card {
-  overflow-y: scroll; /* Hiển thị thanh cuộn dọc khi cần */
-  max-height: 820px; /* Giới hạn chiều cao tối đa */
+  overflow-y: scroll;
+  max-height: 820px;
+}
+
+.input-group .flex-fill-3 {
+  width: 32%;
+}
+
+.input-group .flex-fill-4 {
+  width: 23%;
+}
+
+ng-select {
+  width: 100%;
 }

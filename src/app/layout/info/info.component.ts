@@ -50,8 +50,7 @@ export class InfoComponent implements OnInit {
 
   }
 
-
-  navigateToLoginLogout() {
-    this.router.navigate(['/system/login']);
+  async navigateToLoginLogout() {
+    await this.router.navigate(['/system/login']);
   }
 }

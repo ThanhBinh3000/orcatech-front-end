@@ -4,8 +4,6 @@ import {TitleService} from '../../../services/shared/title.service';
 import {AuthService} from '../../../services/security/auth.service';
 import {Router} from '@angular/router';
 import {ComponentsModule} from '../../../component/base/components.module';
-import {RegisterComponent} from '../register/register.component';
-import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +24,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     private router: Router,
     private renderer: Renderer2,
     private el: ElementRef,
-    private dialog: MatDialog
   ) {
     this.formGroup = this.fb.group({
       username: ['', Validators.required],
@@ -54,19 +51,16 @@ export class LoginComponent implements OnInit, OnDestroy {
       const profile = await this.authService.profile();
       if (profile && profile.status == 0) {
         this.authService.saveUser(profile.data);
-        if(profile.data.company){
-
+        if (profile.data.company) {
           this.authService.saveCompany(profile.data.company);
         }
       }
-      this.router.navigate(['']).then(async r => {});
+      this.router.navigate(['']).then(async r => {
+      });
     }
   }
 
-  async openRegisterHangDialog(hangHoa: any) {
-    const dialogRef = this.dialog.open(RegisterComponent, {
-      data: hangHoa,
-      width: '800px',
-    });
+  async navigateRegister() {
+    await this.router.navigate(['/system/register']);
   }
 }

@@ -1,8 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ComponentsModule} from '../../component/base/components.module';
 import {AuthService} from '../../services/security/auth.service';
 import {Router} from '@angular/router';
-import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +10,7 @@ import {MatDialog} from '@angular/material/dialog';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit {
   public company: any;
   public companyName: string = '';
   public display: any = {};
@@ -19,7 +18,6 @@ export class HeaderComponent implements OnInit{
   constructor(
     public authService: AuthService,
     private router: Router,
-    private dialog: MatDialog
   ) {
     this.company = authService.getCompany();
     if (this.company) {
@@ -47,5 +45,9 @@ export class HeaderComponent implements OnInit{
 
   isLogin() {
     return this.authService.isLogin();
+  }
+
+  async navigateToHome() {
+    await this.router.navigate(['/']);
   }
 }

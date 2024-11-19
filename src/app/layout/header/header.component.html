@@ -6,15 +6,16 @@
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav nav-orca">
               <li>
-                <a href="/" class="logo-link hover-effect">
+                <span class="logo-link hover-effect" (click)="navigateToHome()">
                   <img class="border-upload-image logo-circle" src="/assets/images/logoOrcaTech1.jpg" alt="ImageLogo">
                   <strong class="header-text-orca">Orca </strong>
                   <strong class="header-text-tech">Tech </strong>
-                </a>
+                </span>
               </li>
               <li *ngIf="isLogin()" class="dropdown menu" (mouseenter)="mouseEnter('system', 'block') "
                   (mouseleave)="mouseLeave('system','none')">
-                <a href="javascript:void(0);" data-toggle="dropdown" role="button" aria-expanded="true" class="dropdown-toggle">Hệ Thống
+                <a href="javascript:void(0);" data-toggle="dropdown" role="button" aria-expanded="true"
+                   class="dropdown-toggle">Hệ Thống
                   <i class="fa-solid fa-chevron-down"></i></a>
                 <ul class="dropdown-menu" role="menu" [style.display]="isDisplay('system')">
                   <li><a href="/member/list">Danh sách thành viên</a></li>

@@ -1,337 +1,290 @@
-<div class="card">
-    <div class="modal-header">
-      <div class="text-center">
-        <p class="header-text">
-          <strong class="header-text-orca">Orca </strong>
-          <strong class="header-text-tech">Tech </strong>
-        </p>
-        <b class="title">Create a new account</b>
-        <b class="subtitle">Quick and easy.</b>
-      </div>
-    </div>
-    <div class="modal-body">
-      <form [formGroup]="formGroup">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-group">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="col-sm-12">
-                    <div class="input-group">
-                      <input formControlName="username" class="form-control mb-0 text-left" type="text"
-                             placeholder="Username"/>
-                      <span class="input-group-addon flex-grow-width-10"><i class="fa fa-user fa-fw"></i></span>
-                    </div>
-                    <span class="text-danger field-validation-error"
-                          *ngIf="formGroup.get('username')?.invalid && formGroup.get('username')?.touched">
-                    Please enter a username!
+<div class="container body-content">
+  <div class="box-login">
+    <div class="box-group-white">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="text-center">
+            <p class="header-text">
+              <strong class="header-text-orca">Orca </strong>
+              <strong class="header-text-tech">Tech </strong>
+            </p>
+            <b class="title">Create a new account</b>
+            <b class="subtitle">Quick and easy.</b>
+          </div>
+          <br>
+          <form [formGroup]="formGroup">
+            <div class="mb-3">
+              <div class="input-group">
+                <input formControlName="username" class="form-control mb-0 text-left" type="text"
+                       placeholder="Username"/>
+                <span class="input-group-addon flex-grow-width-10">
+                  <i class="fa fa-user fa-fw"></i>
+                </span>
+              </div>
+              <span class="text-danger field-validation-error"
+                    *ngIf="formGroup.get('username')?.invalid && formGroup.get('username')?.touched">
+                Please enter a username!
+              </span>
+            </div>
+            <div class="mb-3">
+              <div class="input-group">
+                <input formControlName="password" class="form-control mb-0 text-left" placeholder="Password"
+                       [type]="isPasswordHidden ? 'password' : 'text'"/>
+                <span (click)="isPasswordHidden = !isPasswordHidden" class="input-group-addon flex-grow-width-10">
+                    <i class="fa fa-eye fa-fw"></i>
+                </span>
+              </div>
+              <span *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched">
+                <span class="text-danger field-validation-error"
+                      *ngIf="formGroup.get('password')?.errors?.['required']">
+                  Please enter a password!
+                </span>
+                <span class="text-danger field-validation-error"
+                      *ngIf="formGroup.get('password')?.errors?.['invalidPassword']">
+                  The password is invalid. It must be between 8 to 15 characters long and include uppercase letters, lowercase letters, numbers, and special characters. Please enter a valid email address! For example: orcaTech000&#64;.
+                </span>
+              </span>
+            </div>
+            <div class="mb-3">
+              <div class="input-group">
+                <input formControlName="confirmPassword" class="form-control mb-0 text-left" autocomplete="off"
+                       placeholder="Confirm password" [type]="isConfirmPasswordHidden ? 'password' : 'text'"/>
+                <span (click)="isConfirmPasswordHidden = !isConfirmPasswordHidden"
+                      class="input-group-addon flex-grow-width-10">
+                    <i class="fa fa-eye fa-fw"></i>
+                </span>
+              </div>
+              <span *ngIf="formGroup.get('confirmPassword')?.touched">
+                <span class="text-danger field-validation-error"
+                      *ngIf="formGroup.get('confirmPassword')?.invalid && formGroup.get('confirmPassword')?.errors?.['required']">
+                  Please confirm your password!
+                </span>
+                <span class="text-danger field-validation-error" *ngIf="formGroup.errors?.['mismatchPassword']">
+                  The password and confirmation password do not match !
+                </span>
+              </span>
+            </div>
+            <div class="mb-3">
+              <div class="input-group">
+                <input formControlName="fullName" class="form-control mb-0 text-left" type="text"
+                       placeholder="Full name"/>
+                <span class="input-group-addon flex-grow-width-10">
+                  <i class="fa fa-signature fa-fw"></i>
+                </span>
+              </div>
+              <span class="text-danger field-validation-error"
+                    *ngIf="formGroup.get('fullName')?.invalid && formGroup.get('fullName')?.touched">
+                Please enter your full name!
+              </span>
+            </div>
+            <div class="mb-3">
+              <div class="input-group d-flex justify-content-between">
+                <div class="flex-fill-3">
+                  <ng-select appendTo="body" appearance="outline" [items]="days" formControlName="selectedDay"
+                             placeholder="Date of birth" notFoundText="No items found.">
+                    <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                      <span [ngOptionHighlight]="search">{{ item }}</span>
+                    </ng-template>
+                  </ng-select>
+                  <span class="text-danger field-validation-error"
+                        *ngIf="formGroup.get('selectedDay')?.invalid && formGroup.get('selectedDay')?.touched">
+                    Please select a date of birth!
                   </span>
-                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="col-sm-12">
-                    <div class="input-group">
-                      <input formControlName="password" class="form-control mb-0 text-left" placeholder="Password"
-                             [type]="isPasswordHidden ? 'password' : 'text'"/>
-                      <span (click)="isPasswordHidden = !isPasswordHidden" class="input-group-addon flex-grow-width-10">
-                    <i class="fa fa-eye fa-fw"></i></span>
-                    </div>
-                    <span *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched">
-                    <span class="text-danger field-validation-error"
-                          *ngIf="formGroup.get('password')?.errors?.['required']">
-                      Please enter a password!
-                    </span>
-                    <span class="text-danger field-validation-error"
-                          *ngIf="formGroup.get('password')?.errors?.['invalidPassword']">
-                      The password is invalid. It must be between 8 to 15 characters long and include uppercase letters, lowercase letters, numbers, and special characters. Please enter a valid email address! For example: orcaTech000&#64;.
-                    </span>
+                <div class="flex-fill-3">
+                  <ng-select appendTo="body" appearance="outline" [items]="months" formControlName="selectedMonth"
+                             placeholder="Month of birth" notFoundText="No items found.">
+                    <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                      <span [ngOptionHighlight]="search">{{ item }}</span>
+                    </ng-template>
+                  </ng-select>
+                  <span class="text-danger field-validation-error"
+                        *ngIf="formGroup.get('selectedMonth')?.invalid && formGroup.get('selectedMonth')?.touched">
+                    Please select a month of birth!
                   </span>
-                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="col-sm-12">
-                    <div class="input-group">
-                      <input formControlName="confirmPassword" class="form-control mb-0 text-left" autocomplete="off"
-                             placeholder="Confirm password"
-                             [type]="isConfirmPasswordHidden ? 'password' : 'text'"/>
-                      <span (click)="isConfirmPasswordHidden = !isConfirmPasswordHidden"
-                            class="input-group-addon flex-grow-width-10">
-                    <i class="fa fa-eye fa-fw"></i></span>
-                    </div>
-                    <span *ngIf="formGroup.get('confirmPassword')?.touched">
-                    <span class="text-danger field-validation-error"
-                          *ngIf="formGroup.get('confirmPassword')?.invalid && formGroup.get('confirmPassword')?.errors?.['required']">
-                      Please confirm your password!
-                    </span>
-                    <span class="text-danger field-validation-error" *ngIf="formGroup.errors?.['mismatchPassword']">
-                      The password and confirmation password do not match !
-                    </span>
+                <div class="flex-fill-3">
+                  <ng-select appendTo="body" appearance="outline" [items]="years" formControlName="selectedYear"
+                             placeholder="Year of birth" notFoundText="No items found.">
+                    <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                      <span [ngOptionHighlight]="search">{{ item }}</span>
+                    </ng-template>
+                  </ng-select>
+                  <span class="text-danger field-validation-error"
+                        *ngIf="formGroup.get('selectedYear')?.invalid && formGroup.get('selectedYear')?.touched">
+                    Please select a year of birth!
                   </span>
-                  </div>
                 </div>
               </div>
             </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="col-sm-12">
-                    <div class="input-group">
-                      <input formControlName="fullName" class="form-control mb-0 text-left" type="text"
-                             placeholder="Full name"/>
-                      <span class="input-group-addon flex-grow-width-10"><i class="fa fa-signature fa-fw"></i></span>
-                    </div>
-                    <span class="text-danger field-validation-error"
-                          *ngIf="formGroup.get('fullName')?.invalid && formGroup.get('fullName')?.touched">
-                    Please enter your full name!
+            <div class="mb-3">
+              <div class="input-group d-flex justify-content-between">
+                <div class="flex-fill-3">
+                  <label class="radio-input">
+                    <input type="radio" formControlName="gender" name="gender" value="1" required>
+                    <span class="radio-label"> Male</span>
+                  </label>
+                </div>
+                <div class="flex-fill-3">
+                  <label class="radio-input">
+                    <input type="radio" formControlName="gender" name="gender" value="2" required>
+                    <span class="radio-label"> Female</span>
+                  </label>
+                </div>
+                <div class="flex-fill-3">
+                  <label class="radio-input">
+                    <input type="radio" formControlName="gender" name="gender" value="3" required>
+                    <span class="radio-label"> Other</span>
+                  </label>
+                </div>
+                <span class="text-danger field-validation-error"
+                      *ngIf="formGroup.get('gender')?.invalid && formGroup.get('gender')?.touched">
+                  Please select a gender!
+                </span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="input-group">
+                <input formControlName="email" class="form-control mb-0 text-left" type="text"
+                       placeholder="Email address"/>
+                <span class="input-group-addon flex-grow-width-10">
+                  <i class="fa fa-envelope fa-fw"></i>
+                </span>
+              </div>
+              <span *ngIf="formGroup.get('email')?.invalid && formGroup.get('email')?.touched">
+                <span class="text-danger field-validation-error"
+                      *ngIf="formGroup.get('email')?.errors?.['required']">
+                  Please enter your email address!
+                </span>
+                <span class="text-danger field-validation-error"
+                      *ngIf="formGroup.get('email')?.errors?.['invalidEmail']">
+                  The email address is invalid. It must include &#64; and a domain. Please enter a valid email address! For example: orca&#64;example.com.
+                </span>
+            </span>
+            </div>
+            <div class="mb-3">
+              <div class="input-group">
+                <input formControlName="phoneNumber" class="form-control mb-0 text-left" type="text"
+                       placeholder="Phone number"/>
+                <span class="input-group-addon flex-grow-width-10">
+                  <i class="fa fa-phone fa-fw"></i>
+                </span>
+              </div>
+              <span *ngIf="formGroup.get('phoneNumber')?.touched">
+                <span class="text-danger field-validation-error"
+                      *ngIf="formGroup.get('phoneNumber')?.invalid && formGroup.get('phoneNumber')?.errors?.['required']">
+                  Please enter your phone number!
+                </span>
+                <span class="text-danger field-validation-error"
+                      *ngIf="formGroup.get('phoneNumber')?.errors?.['invalidPhoneNumber']">
+                  Invalid phone number! The valid format is 10 to 11 digits, starting with the number 0.
+                </span>
+              </span>
+            </div>
+            <div class="mb-3">
+              <div class="input-group">
+                <input formControlName="citizenIdNumber" class="form-control mb-0 text-left" type="text"
+                       placeholder="Citizen Id Number"/>
+                <span class="input-group-addon flex-grow-width-10">
+                  <i class="fa fa-id-card fa-fw"></i>
+                </span>
+              </div>
+              <span class="text-danger field-validation-error"
+                    *ngIf="formGroup.get('citizenIdNumber')?.invalid && formGroup.get('citizenIdNumber')?.touched">
+                Please enter your ID card/Citizen Identification number!
+              </span>
+            </div>
+            <div class="mb-3">
+              <div class="input-group d-flex justify-content-between">
+                <div class="flex-fill-4">
+                  <ng-select appendTo="body" appearance="outline" [items]="listRegions" formControlName="regionId"
+                             bindLabel="name" bindValue="id" placeholder="Country/Region" notFoundText="No items found."
+                             (change)="changeRegions($event)">
+                    <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                      <span [ngOptionHighlight]="search">{{ item.name }}</span>
+                    </ng-template>
+                  </ng-select>
+                  <span class="text-danger field-validation-error"
+                        *ngIf="formGroup.get('regionId')?.invalid && formGroup.get('regionId')?.touched">
+                    Please select a Country/Region!
                   </span>
-                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="col-sm-4">
-                    <ng-select appendTo="body" appearance="outline" [items]="days"
-                               formControlName="selectedDay" placeholder="Date of birth" notFoundText="No items found.">
-                      <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
-                        <span [ngOptionHighlight]="search">{{ item }}</span>
-                      </ng-template>
-                    </ng-select>
-                    <span *ngIf="formGroup.get('selectedDay')?.invalid && formGroup.get('selectedDay')?.touched"
-                          class="text-danger field-validation-error">
-                      Please select a date of birth!
-                    </span>
-                  </div>
-                  <div class="col-sm-4">
-                    <ng-select appendTo="body" appearance="outline" [items]="months"
-                               formControlName="selectedMonth" placeholder="Month of birth"
-                               notFoundText="No items found.">
-                      <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
-                        <span [ngOptionHighlight]="search">{{ item }}</span>
-                      </ng-template>
-                    </ng-select>
-                    <span *ngIf="formGroup.get('selectedMonth')?.invalid && formGroup.get('selectedMonth')?.touched"
-                          class="text-danger field-validation-error">
-                      Please select a month of birth!
-                    </span>
-                  </div>
-                  <div class="col-sm-4">
-                    <ng-select appendTo="body" appearance="outline" [items]="years"
-                               formControlName="selectedYear" placeholder="Year of birth"
-                               notFoundText="No items found.">
-                      <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
-                        <span [ngOptionHighlight]="search">{{ item }}</span>
-                      </ng-template>
-                    </ng-select>
-                    <span *ngIf="formGroup.get('selectedYear')?.invalid && formGroup.get('selectedYear')?.touched"
-                          class="text-danger field-validation-error">
-                      Please select a year of birth!
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="col-sm-4">
-                    <label class="radio-input">
-                      <input type="radio" formControlName="gender" name="gender" value="1" required>
-                      <span class="radio-label"> Male</span>
-                    </label>
-                  </div>
-                  <div class="col-sm-4">
-                    <label class="radio-input">
-                      <input type="radio" formControlName="gender" name="gender" value="2" required>
-                      <span class="radio-label"> Female</span>
-                    </label>
-                  </div>
-                  <div class="col-sm-4">
-                    <label class="radio-input">
-                      <input type="radio" formControlName="gender" name="gender" value="3" required>
-                      <span class="radio-label"> Other</span>
-                    </label>
-                  </div>
-                  <span *ngIf="formGroup.get('gender')?.invalid && formGroup.get('gender')?.touched"
-                        class="text-danger field-validation-error">
-                      Please select a gender!
-                    </span>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="col-sm-12">
-                    <div class="input-group">
-                      <input formControlName="email" class="form-control mb-0 text-left" type="text"
-                             placeholder="Email address"/>
-                      <span class="input-group-addon flex-grow-width-10"><i class="fa fa-envelope fa-fw"></i></span>
-                    </div>
-                    <span *ngIf="formGroup.get('email')?.invalid && formGroup.get('email')?.touched">
-                    <span class="text-danger field-validation-error"
-                          *ngIf="formGroup.get('email')?.errors?.['required']">
-                      Please enter your email address!
-                    </span>
-                    <span class="text-danger field-validation-error"
-                          *ngIf="formGroup.get('email')?.errors?.['invalidEmail']">
-                      The email address is invalid. It must include &#64; and a domain. Please enter a valid email address! For example: orca&#64;example.com.
-                    </span>
+                <div class="flex-fill-4">
+                  <ng-select appendTo="body" appearance="outline" [items]="listProvinces" formControlName="provinceId"
+                             bindLabel="name" bindValue="id" placeholder="State/Province" notFoundText="No items found."
+                             (change)="changeProvinces($event)">
+                    <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                      <span [ngOptionHighlight]="search">{{ item.name }}</span>
+                    </ng-template>
+                  </ng-select>
+                  <span class="text-danger field-validation-error"
+                        *ngIf="formGroup.get('provinceId')?.invalid && formGroup.get('provinceId')?.touched">
+                    Please select a State/Province!
                   </span>
-                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="col-sm-12">
-                    <div class="input-group">
-                      <input formControlName="phoneNumber" class="form-control mb-0 text-left" type="text"
-                             placeholder="Phone number"/>
-                      <span class="input-group-addon flex-grow-width-10"><i class="fa fa-phone fa-fw"></i></span>
-                    </div>
-                    <span *ngIf="formGroup.get('phoneNumber')?.touched">
-                      <span class="text-danger field-validation-error"
-                            *ngIf="formGroup.get('phoneNumber')?.invalid && formGroup.get('phoneNumber')?.errors?.['required']">
-                        Please enter your phone number!
-                      </span>
-                      <span class="text-danger field-validation-error"
-                            *ngIf="formGroup.get('phoneNumber')?.errors?.['invalidPhoneNumber']">
-                        Invalid phone number! The valid format is 10 to 11 digits, starting with the number 0.
-                      </span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="col-sm-12">
-                    <div class="input-group">
-                      <input formControlName="citizenIdNumber" class="form-control mb-0 text-left" type="text"
-                             placeholder="Citizen Id Number"/>
-                      <span class="input-group-addon flex-grow-width-10"><i class="fa fa-id-card fa-fw"></i></span>
-                    </div>
-                    <span class="text-danger field-validation-error"
-                          *ngIf="formGroup.get('citizenIdNumber')?.invalid && formGroup.get('citizenIdNumber')?.touched">
-                     Please enter your ID card/Citizen Identification number!
+                <div class="flex-fill-4">
+                  <ng-select appendTo="body" appearance="outline" [items]="listCities" formControlName="cityId"
+                             bindLabel="name" bindValue="id" placeholder="City/District" notFoundText="No items found."
+                             (change)="changeCities($event)">
+                    <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                      <span [ngOptionHighlight]="search">{{ item.name }}</span>
+                    </ng-template>
+                  </ng-select>
+                  <span class="text-danger field-validation-error"
+                        *ngIf="formGroup.get('cityId')?.invalid && formGroup.get('cityId')?.touched">
+                    Please select a City/District!
                   </span>
-                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="col-sm-3">
-                    <ng-select appendTo="body" appearance="outline" [items]="listRegions"
-                               formControlName="regionId" bindLabel="name" bindValue="id"
-                               placeholder="Country/Region" notFoundText="No items found."
-                               (change)="changeRegions($event)">
-                      <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
-                        <span [ngOptionHighlight]="search">{{ item.name }}</span>
-                      </ng-template>
-                    </ng-select>
-                    <span *ngIf="formGroup.get('regionId')?.invalid && formGroup.get('regionId')?.touched"
-                          class="text-danger field-validation-error">
-                      Please select a Country/Region!
-                    </span>
-                  </div>
-                  <div class="col-sm-3">
-                    <ng-select appendTo="body" appearance="outline" [items]="listProvinces"
-                               formControlName="provinceId" bindLabel="name" bindValue="id"
-                               placeholder="State/Province" notFoundText="No items found."
-                               (change)="changeProvinces($event)">
-                      <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
-                        <span [ngOptionHighlight]="search">{{ item.name }}</span>
-                      </ng-template>
-                    </ng-select>
-                    <span *ngIf="formGroup.get('provinceId')?.invalid && formGroup.get('provinceId')?.touched"
-                          class="text-danger field-validation-error">Please select a State/Province!
-                    </span>
-                  </div>
-                  <div class="col-sm-3">
-                    <ng-select appendTo="body" appearance="outline" [items]="listCities"
-                               formControlName="cityId" bindLabel="name" bindValue="id"
-                               placeholder="City/District" notFoundText="No items found."
-                               (change)="changeCities($event)">
-                      <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
-                        <span [ngOptionHighlight]="search">{{ item.name }}</span>
-                      </ng-template>
-                    </ng-select>
-                    <span *ngIf="formGroup.get('cityId')?.invalid && formGroup.get('cityId')?.touched"
-                          class="text-danger field-validation-error">Please select a City/District!
-                      </span>
-                  </div>
-                  <div class="col-sm-3">
-                    <ng-select appendTo="body" appearance="outline" [items]="listWards"
-                               formControlName="wardId" bindLabel="name" bindValue="id"
-                               placeholder="Suburb/Ward" notFoundText="No items found.">
-                      <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
-                        <span [ngOptionHighlight]="search">{{ item.name }}</span>
-                      </ng-template>
-                    </ng-select>
-                    <span *ngIf="formGroup.get('wardId')?.invalid && formGroup.get('wardId')?.touched"
-                          class="text-danger field-validation-error">Please select a Suburb/Ward!
-                      </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="col-sm-12">
-                    <div class="input-group">
-                      <input formControlName="addresses" class="form-control mb-0 text-left" type="text"
-                             placeholder="Addresses"/>
-                      <span class="input-group-addon flex-grow-width-10"><i
-                        class="fa fa-map-marker-alt fa-fw"></i></span>
-                    </div>
-                    <span class="text-danger field-validation-error"
-                          *ngIf="formGroup.get('addresses')?.invalid && formGroup.get('addresses')?.touched">
-                    Please enter your street address!
+                <div class="flex-fill-4">
+                  <ng-select appendTo="body" appearance="outline" [items]="listWards" formControlName="wardId"
+                             bindLabel="name" bindValue="id" placeholder="Suburb/Ward" notFoundText="No items found.">
+                    <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                      <span [ngOptionHighlight]="search">{{ item.name }}</span>
+                    </ng-template>
+                  </ng-select>
+                  <span class="text-danger field-validation-error"
+                        *ngIf="formGroup.get('wardId')?.invalid && formGroup.get('wardId')?.touched">
+                    Please select a Suburb/Ward!
                   </span>
-                  </div>
                 </div>
               </div>
             </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="col-sm-12">
-                    <div class="input-group">
-                      <input formControlName="zipCode" class="form-control mb-0 text-left" type="text"
-                             placeholder="Postal Code/ZIP Code"/>
-                      <span class="input-group-addon flex-grow-width-10">
-                        <i class="fa fa-barcode fa-fw"></i>
-                      </span>
-                    </div>
-                    <span class="text-danger field-validation-error"
-                          *ngIf="formGroup.get('zipCode')?.invalid && formGroup.get('zipCode')?.touched">
-                    Please enter your Postal Code/ZIP Code!
-                  </span>
-                  </div>
-                </div>
+            <div class="mb-3">
+              <div class="input-group">
+                <input formControlName="addresses" class="form-control mb-0 text-left" type="text"
+                       placeholder="Addresses"/>
+                <span class="input-group-addon flex-grow-width-10">
+                  <i class="fa fa-map-marker-alt fa-fw"></i>
+                </span>
               </div>
+              <span class="text-danger field-validation-error"
+                    *ngIf="formGroup.get('addresses')?.invalid && formGroup.get('addresses')?.touched">
+                Please enter your street address!
+              </span>
             </div>
+            <div class="mb-3">
+              <div class="input-group">
+                <input formControlName="zipCode" class="form-control mb-0 text-left" type="text"
+                       placeholder="Postal Code/ZIP Code"/>
+                <span class="input-group-addon flex-grow-width-10">
+                  <i class="fa fa-barcode fa-fw"></i>
+                </span>
+              </div>
+              <span class="text-danger field-validation-error"
+                    *ngIf="formGroup.get('zipCode')?.invalid && formGroup.get('zipCode')?.touched">
+                Please enter your Postal Code/ZIP Code!
+              </span>
+            </div>
+          </form>
+          <div class=" mb-3 form-check">
+            <input (change)="changeCheckBox($event)" class="form-control form-check-input" type="checkbox"/>
+            <label class="form-check-label">I agree to the terms in the Privacy Policy. </label>
+          </div>
+          <div class="mt-3 btn-fullwidth">
+            <input [disabled]="!checkbox" type="button" (click)="register()" value="Register" class="btn btn-primary">
           </div>
         </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-primary" (click)="register()">Register</button>
-      <button type="button" class="btn btn-default" (click)="closeModal()">Close</button>
+      </div>
     </div>
   </div>
+</div>

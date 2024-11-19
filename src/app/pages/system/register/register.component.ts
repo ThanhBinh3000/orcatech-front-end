@@ -1,9 +1,8 @@
-import {Component, Injector, OnInit} from '@angular/core';
+import {Component, ElementRef, Injector, OnDestroy, OnInit, Renderer2} from '@angular/core';
 import {
   FormGroup,
   Validators
 } from '@angular/forms';
-import {MatDialogRef} from '@angular/material/dialog';
 import {passwordValidator} from '../../../validators/password.validator';
 import {emailValidator} from '../../../validators/email.validator';
 import {phoneNumberValidator} from '../../../validators/phone-number.validator';
@@ -25,7 +24,7 @@ import {DatePipe} from "@angular/common";
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
-export class RegisterComponent extends BaseComponent implements OnInit {
+export class RegisterComponent extends BaseComponent implements OnInit, OnDestroy{
   title = "Register";
   isPasswordHidden = true;
   isConfirmPasswordHidden = true;
@@ -33,6 +32,7 @@ export class RegisterComponent extends BaseComponent implements OnInit {
   listProvinces: any[] = [];
   listCities: any[] = [];
   listWards: any[] = [];
+  checkbox: boolean = false;
 
   constructor(
     injector: Injector,
@@ -42,8 +42,9 @@ export class RegisterComponent extends BaseComponent implements OnInit {
     private provincesService: ProvincesService,
     private citiesService: CitiesService,
     private wardsService: WardsService,
+    private renderer: Renderer2,
+    private el: ElementRef,
     private datePipe: DatePipe,
-    public dialogRef: MatDialogRef<RegisterComponent>,
   ) {
     super(injector, _service);
     this.formGroup = this.fb.group({
@@ -77,10 +78,15 @@ export class RegisterComponent extends BaseComponent implements OnInit {
 
   async ngOnInit() {
     this.titleService.setTitle(this.title);
+    this.renderer.addClass(this.el.nativeElement.ownerDocument.body, 'login-bg');
     await this.getListRegions();
     await this.getListProvinces(this.formGroup.get('regionId')?.value);
     await this.getListCities(this.formGroup.get('provinceId')?.value);
     await this.getlistWards(this.formGroup.get('cityId')?.value);
+  }
+
+  ngOnDestroy() {
+    this.renderer.removeClass(this.el.nativeElement.ownerDocument.body, 'login-bg');
   }
 
   async getListRegions() {
@@ -149,6 +155,11 @@ export class RegisterComponent extends BaseComponent implements OnInit {
     }
   }
 
+  changeCheckBox(event: Event): void {
+    const check = event.target as HTMLInputElement;
+    this.checkbox = check.checked;
+  }
+
   async register() {
     await this.calculateBirthDate()
     this.markFormGroupTouched(this.formGroup);
@@ -156,12 +167,7 @@ export class RegisterComponent extends BaseComponent implements OnInit {
     const res = await this.service.create(this.formGroup.value);
     if (res?.status === STATUS_API.SUCCESS) {
       this.notification.success(MESSAGE.SUCCESS, MESSAGE.CREATE_ACCOUNT_SUCCESS);
-      this.closeModal();
       return res.data;
     }
-  }
-
-  closeModal() {
-    this.dialogRef.close();
   }
 }
